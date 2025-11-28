@@ -1,0 +1,19 @@
+install django
+add static
+add vite.config.js and update it
+npm init -y
+npm i -D vite
+update package.json
+update vite.config.
+updated settings.py (staticfiles_dirs and static_root)
+updated settings.py (vite_config)
+added 3 template tags
+(vite_asset will be replaced with what is declared in manifest.js)
+added tailwind using its vite plugin
+updated the vite.config.js to include tailwind
+upadted the static/js/main.js to inlcude static/css/main.css
+renamed vite.config.js to vite.config.mjs
+
+vite.config.js points to static/js/main.js (entry point)
+
+django will serve the resulted bundle files in assets dir

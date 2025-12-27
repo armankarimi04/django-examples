@@ -1,0 +1,35 @@
+packages we need:
+django
+django-rest-framework
+django-vite
+
+
+cookies configuration in django
+(only needed for authentication, not away)
+
+
+static files configuration in django:
+static/ (input)
+frontend/ (SPA files)
+frontend/dist/ (output)
+
+
+environment variables (both frontend & backend)
+
+
+setting up frontned:
+add frontend folder
+add vite.config.js (with configuration defined)
+backend> npm init -y
+> npm i -D vite (i installed without -D)
+add vite's react plugin
+> npm install -D @vitejs/plugin-react
+> npm install react react-dom
+create a simple react component in frontend/
+
+Here we need to decide the approch
+1. have a templates directory and inject react to it
+2. or react will be served from frontned
+
+injecting react is the django-vite style
+add templates directory

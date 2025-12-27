@@ -1,0 +1,14 @@
+{
+  "frontend/index.js": {
+    "file": "js/index-bundle.js",
+    "name": "index",
+    "src": "frontend/index.js",
+    "isEntry": true
+  },
+  "frontend/main.jsx": {
+    "file": "js/main-bundle.js",
+    "name": "main",
+    "src": "frontend/main.jsx",
+    "isEntry": true
+  }
+}

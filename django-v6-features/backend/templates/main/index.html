@@ -1,0 +1,37 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+    <form id="myForm">
+        Enter id:
+        <input type="text" name="user_id" placeholder="username" id="user_id">
+        <input type="submit" value="Search">
+    </form>
+
+    <div id="response_holder">
+
+    </div>
+    
+{% endblock content %}
+
+{% block jscode %}
+<script>
+    $(document).ready(function() {
+        console.log("document ready");
+        $("#myForm").submit(function(e) {
+            e.preventDefault();
+            var user_id = $("#user_id").val();
+            $.ajax({
+                type: "GET",
+                url: "{% url 'get_user' %}",
+                data: {
+                    user_id: user_id
+                },
+                success: function(response) {
+                    $("#response_holder").html(response);
+                }
+            });
+        });
+    });
+</script>
+{% endblock jscode %}

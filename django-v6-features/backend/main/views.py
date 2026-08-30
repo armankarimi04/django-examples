@@ -32,3 +32,5 @@ def provide_user_info_partial(request):
     
     user = authors.get(user_id)
     return render(request, 'main/partials/authors.html#user-info', {'user': user})
+
+

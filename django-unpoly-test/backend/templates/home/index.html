@@ -1,0 +1,39 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+    <h1 class="text-4xl text-slate-500 mb-2">Latest news</h1>
+    <div class="grid grid-cols-2 gap-4">
+        <div class="col-span-1">
+            {% for article in news_articles %}
+                <div class="py-4">
+                    <h2 class="text-xl">{{ article.title }} - {{ article.date }}</h2>
+                    <a href="{% url 'get-article' article.id %}"
+                        up-target="#article-text"
+                        up-transition="cross-fade"
+                        up-duration="100"
+                        up-on-loaded="toggleArticleLinks(this)"
+                        class="article-link text-blue-400 hover:text-blue-500">
+                    Read more
+                    </a>
+                </div>
+                <hr/>
+            {% endfor %}
+        </div>
+
+        <div class="col-span-1" id="article-text">
+        </div>
+    </div>
+
+    <script>
+        // take the one that was selected and set it to Read less
+        // take all the others and set them to Read more
+        function toggleArticleLinks(link) {
+            document.querySelectorAll('.article-link').forEach(article => {
+                article.innerText = "Read more";
+            });
+            link.innerText = "Read less";
+        }
+    </script>
+
+{% endblock content %}

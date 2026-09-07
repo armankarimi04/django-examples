@@ -1,0 +1,56 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+  <div class="flex flex-col items-center">
+    <h1 class="text-4xl font-bold mb-8 text-center">Film Collection</h1>
+    
+    <!-- Table for movies -->
+    <div class="w-full max-w-6xl">
+      <div class="overflow-x-auto shadow-lg rounded-lg">
+        <table id="movie-table" class="table table-zebra w-full">
+          <thead>
+            <tr class="bg-base-200">
+              <th class="text-left">Title</th>
+              <th class="text-left">Director</th>
+              <th class="text-center">Year</th>
+              <th class="text-center">Genre</th>
+              <th class="text-center">Rating</th>
+              <th class="text-center">Duration</th>
+            </tr>
+          </thead>
+          <tbody id="movie-table-body">
+            
+            {% if film_page %}
+              {% include "main/partials/table-rows.html" %}
+
+            {% else %}
+            <tr>
+              <td colspan="6" class="text-center py-8 text-base-content/60">
+                <div class="flex flex-col items-center">
+                  <svg class="w-12 h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2h4a1 1 0 110 2h-1v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6H3a1 1 0 110-2h4z"></path>
+                  </svg>
+                  <p class="text-lg">No films found</p>
+                </div>
+              </td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+
+      <button id="more-films-btn" class="btn btn-primary mt-6"
+        data-on:click="@get('/films/')"
+        data-signals:page="1"
+        data-indicator:_loading
+        data-attr:disabled="$_loading">
+        Load more
+        <span data-show="$_loading" class="loading loading-spinner loading-md"></span>
+      </button>
+      
+      
+    </div>
+  </div>
+</div>
+{% endblock %}

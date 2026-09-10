@@ -1,0 +1,29 @@
+<div>
+  <!-- form goes here -->
+  <form id="new-film-form">
+    {% csrf_token %}
+    <div class="flex flex-col">
+      <label for="title">Title:</label>
+      <input class="input" type="text" name="title" id="title" placeholder="Title">
+      <label for="director">Director:</label>
+      <input class="input" type="text" name="director" id="director" placeholder="Director">
+      <label for="release_year">Release Year:</label>
+      <input class="input" type="number" name="release_year" id="release_year" placeholder="2012">
+      <label for="rating">Rating:</label>
+      <input class="input" type="number" name="rating" id="rating" placeholder="Rating" max="10" min="1">
+      <label for="duration_minutes">Duration (in minutes):</label>
+      <input class="input" type="number" name="duration_minutes" id="duration_minutes" placeholder="Duration">
+      <div class="flex w-full px-8 py-8">
+        <!-- actions -->
+        <button class="btn btn-sm btn-primary m-10 w-36" id="submit-btn"
+          data-on:click="@post('/new-film-form-submit')"
+          data-signals:new_form_submit="true">
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+  <button class="btn btn-sm btn-error m-10 w-36" id="close-btn" onclick="new_film_modal.close()">
+    Close
+  </button>
+</div>
